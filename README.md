@@ -39,11 +39,11 @@ In both modes it installs its own handler of INT 21h, intercepting calls of func
 ## Usage
 
 ```    
-         FORD <ini-file>  
+FORD <ini-file>  
 ```  
 or  
 ```  
-         FORD /s  
+FORD /s  
 ```  
 to create sample .INI file.  
   
