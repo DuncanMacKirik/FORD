@@ -16,7 +16,7 @@ Also, when used with USB drives/Compact Flash/etc instead of a CD drive, FORD ca
   
 ## Technical details
   
-FORD is written in Pascal, and can be compiled with Turbo Pascal / Borland Pascal / Free Pascal (needs verifying) for MS-DOS target.
+FORD is written in Pascal, and can be compiled with Turbo Pascal / Borland Pascal / Free Pascal (needs verifying) for the real-mode MS-DOS target.
   
 Two modes are supported:
  * TSR
@@ -38,6 +38,59 @@ In both modes it installs its own handler of INT 21h, intercepting calls of func
   
 ## Usage
   
+         FORD <ini-file>    
+or    
+         FORD /s          to create sample .INI file.');  
   
-## Configuration files description
+  
+## Configuration file example with description
+  
+; Sample .INI file for FORD 2.0  
+; Copyright (c) Duncan MacKirik, 1999  
+  
+; <-- When a line starts with this character (';'), it is treated as COMMENT  
+; Blank lines are allowed.  
+; All spaces between ':' or ',' and parameter strings are cut.  
+  
+; Program name to be displayed.  
+Name: THE GAME  
+  
+; Syntax:  
+;   Replace:str1,str2  
+;  
+; While opening a file in its f/name str1 will be replaced with str2.  
+; e.g.:  "C:\GAMES\<str1>\GAME.DAT"  -->  "C:\GAMES\<str2>\GAME.DAT".  
+;  
+Replace: C:\GAMES, C:\BIN  
+  
+; Syntax:  
+;   Replace+:str1,str2  
+;  
+; While opening a file in its f/name ALL symbols UNTIL the END of str1 will  
+; be replaced with str2.  
+; e.g.:  "C:\GAMES\CD\<str1>\1\GAME.DAT"  -->  "<str2>\1\GAME.DAT".  
+;  
+Replace+: DATA, C:\BIN  
+  
+; Syntax:  
+;   Replace*:str1,str2  
+;  
+; While opening a file ALL its f/name which contains str1 will be ENTIRELY  
+; replaced with str2.  
+; e.g.:  "C:\GAMES\CD\<str1>\1\GAME.DAT"  -->  "<str2>".  
+;  
+Replace*: DATA, C:\BIN  
+  
+; Syntax:  
+;   Exec:str1,str2  
+; Instead of executing a file with its f/name containing str1, one with  
+; f/name str2 will be executed.  
+; e.g.:  "C:\BIN\ALL\<str1>.EXE"  -->  "<str2>".  
+;  
+Exec: FORMAT C:, @ECHO Formatting drive C:...  
+  
+; Program file to be run. Note: FULL path w/extension is required.  
+Run: START.EXE  
+  
+; That's all folks!  
   
