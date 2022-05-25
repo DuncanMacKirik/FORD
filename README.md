@@ -19,10 +19,12 @@ Also, when used with USB drives/Compact Flash/etc instead of a CD drive, FORD ca
 FORD is written in Pascal, and can be compiled with Turbo Pascal / Borland Pascal / Free Pascal (needs verifying) for MS-DOS target.
   
 Two modes are supported:
- 1) TSR
- 2) app launcher
+ * TSR
+ * app launcher
+  
 In TSR mode, FORD stays resident and you run your app manually for it to do its thing.
-In app launcher mode (useful for being called from a batch file), FORD 
+  
+In app launcher mode (useful for being called from a batch file), FORD runs your app, intercepting its file operations while it's running, and then terminates when the app exits.
   
 In both modes it installs its own handler of INT 21h, intercepting calls of functions 3Dh (open file) and 4Bh (execute program) and changing their effect according to specified rules.
   
