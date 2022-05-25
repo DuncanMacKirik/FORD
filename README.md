@@ -9,7 +9,7 @@ By writing a simple config file for a game or an application, you could delete a
   
 Recently I found its source code and successfully used it on a restored retro 486DX2-80 (a copy of my first PC) to cut down hard disk usage. So I can't say it's completely useless :-)  
   
-Also, it can be used even today for running legacy apps with different file quirks, on virtual or real machines. MS-DOS and its clones is still being used in embedded devices and small PCs. So old school still rules :-)  
+Also, it can be used even today for running legacy apps with different file quirks, on virtual or real machines. MS-DOS and its clones are still being used in embedded devices and small PCs. So old school still rules :-)  
   
 Also, when used with USB drives/Compact Flash/etc instead of a CD drive, FORD can provide a simple method of software protection: move the sensitive files from the app directory to a removable drive, write a suitable configuration (if the app is normally expecting to find these files in its directory), and the app won't work until you insert the drive. After completing all the work, exit the app, remove the drive, and it won't run without it.  
   
@@ -29,8 +29,9 @@ In both modes it installs its own handler of INT 21h, intercepting calls of func
   
 ## Limitations
   
-Obviously, won't work with Windows 95 and higher and Win 3.x in protected mode (but maybe could work in real mode? not sure). Works OK with DOS extenders, though (they usually use usual real-mode OS calls for file operations).
-Won't work with apps not using function 3Dh of INT 21h for opening files. For example, there is an alternative function for this (0F) which uses FCBs. I did not see a single program using it after mid-90s, so I didn't implement its support.
+ * Obviously, won't work with Windows 95 and higher and Win 3.x in protected mode (but maybe could work in real mode? not sure). Works OK with DOS extenders, though (they usually use usual real-mode OS calls for file operations).
+  
+ * Won't work with apps not using function 3Dh of INT 21h for opening files. For example, there is an alternative function for this (0F) which uses FCBs. I did not see a single program using it after mid-90s, so I didn't implement its support.
   
   
 ## Usage
