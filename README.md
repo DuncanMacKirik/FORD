@@ -37,22 +37,24 @@ In both modes it installs its own handler of INT 21h, intercepting calls of func
   
   
 ## Usage
+
+```    
+         FORD <ini-file>  
 ```  
-         FORD \<ini-file\>    
-```         
 or  
-```
-         FORD /s          to create sample .INI file.');  
 ```  
+         FORD /s  
+```  
+to create sample .INI file.  
   
   
 ## Configuration file example with description
-
+  
 ```  
 ; Sample .INI file for FORD 2.0  
 ; Copyright (c) Duncan MacKirik, 1999  
   
-; \<-- When a line starts with this character (';'), it is treated as COMMENT  
+; <-- When a line starts with this character (';'), it is treated as COMMENT  
 ; Blank lines are allowed.  
 ; All spaces between ':' or ',' and parameter strings are cut.  
   
@@ -63,7 +65,7 @@ Name: THE GAME
 ;   Replace:str1,str2  
 ;  
 ; While opening a file in its f/name str1 will be replaced with str2.  
-; e.g.:  "C:\GAMES\\<str1\>\GAME.DAT"  --\>  "C:\GAMES\\<str2\>\GAME.DAT".  
+; e.g.:  "C:\GAMES\<str1>\GAME.DAT"  -->  "C:\GAMES\<str2>\GAME.DAT".  
 ;  
 Replace: C:\GAMES, C:\BIN  
   
@@ -72,7 +74,7 @@ Replace: C:\GAMES, C:\BIN
 ;  
 ; While opening a file in its f/name ALL symbols UNTIL the END of str1 will  
 ; be replaced with str2.  
-; e.g.:  "C:\GAMES\CD\\<str1\>\1\GAME.DAT"  --\>  "\<str2\>\1\GAME.DAT".  
+; e.g.:  "C:\GAMES\CD\<str1>\1\GAME.DAT"  -->  "<str2>\1\GAME.DAT".  
 ;  
 Replace+: DATA, C:\BIN  
   
@@ -81,7 +83,7 @@ Replace+: DATA, C:\BIN
 ;  
 ; While opening a file ALL its f/name which contains str1 will be ENTIRELY  
 ; replaced with str2.  
-; e.g.:  "C:\GAMES\CD\\<str1\>\1\GAME.DAT"  --\>  "\<str2\>".  
+; e.g.:  "C:\GAMES\CD\<str1>\1\GAME.DAT"  -->  "<str2>".  
 ;  
 Replace*: DATA, C:\BIN  
   
@@ -89,7 +91,7 @@ Replace*: DATA, C:\BIN
 ;   Exec:str1,str2  
 ; Instead of executing a file with its f/name containing str1, one with  
 ; f/name str2 will be executed.  
-; e.g.:  "C:\BIN\ALL\\<str1\>.EXE"  --\>  "\<str2\>".  
+; e.g.:  "C:\BIN\ALL\<str1>.EXE"  -->  "<str2>".  
 ;  
 Exec: FORMAT C:, @ECHO Formatting drive C:...  
   
@@ -97,5 +99,4 @@ Exec: FORMAT C:, @ECHO Formatting drive C:...
 Run: START.EXE  
   
 ; That's all folks!  
-  
 ```
