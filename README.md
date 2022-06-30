@@ -31,7 +31,7 @@ In both modes it installs its own handler of INT 21h, intercepting calls of func
   
 ## Limitations
   
- * Obviously, won't work with Windows 95 and higher and Win 3.x in protected mode (but maybe could work in real mode? not sure). Works OK with DOS extenders, though (they usually use standard real-mode OS calls for file operations).
+ * Obviously, won't work with Windows 95 and higher and Win 3.x in Enhanced mode (but maybe could work in Standard mode? needs checking). Works OK with DOS extenders, though (they usually use standard real-mode OS calls for file operations).
   
  * Won't work with apps not using function 3Dh of INT 21h for opening files. For example, there is an alternative function for this (0Fh) which is used with FCBs. I did not see a single program using something like this in mid-90s and later, so I didn't bother to implement its support.
   
